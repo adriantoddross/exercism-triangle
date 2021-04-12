@@ -4,7 +4,9 @@ export class Triangle {
   }
 
   get isEquilateral() {
-    return this.sides.every((side, index, array) => side === array[0]);
+    return this.sides.every(
+      (side, index, array) => side === array[0] && side > 0
+    );
   }
 
   get isIsosceles() {
