@@ -10,7 +10,11 @@ export class Triangle {
   }
 
   get isIsosceles() {
-    throw new Error("Remove this statement and implement this function");
+    let equalSides = 0;
+    this.sides.every((side, index, array) => {
+      if (array.indexOf(side) >= 0) equalSides++;
+    });
+    return equalSides === 2;
   }
 
   get isScalene() {
