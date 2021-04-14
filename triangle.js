@@ -18,7 +18,7 @@ export class Triangle {
     https://stackoverflow.com/questions/19395257/how-to-count-duplicate-value-in-an-array-in-javascript
     */
     this.sides.forEach((side) => (sides[side] = (sides[side] || 0) + 1));
-    return true;
+    return Object.values(sides).length === 2 ? true : false;
   }
 
   get isScalene() {
