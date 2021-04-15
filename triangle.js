@@ -12,11 +12,7 @@ export class Triangle {
 
   get isIsosceles() {
     let sides = {};
-    /*
-    Return true if 2 sides are the same length.
-    Still need to make sure I understand this solution to get counts of all sides:
-    https://stackoverflow.com/questions/19395257/how-to-count-duplicate-value-in-an-array-in-javascript
-    */
+    // For each side, increment its current count or create a new object property if it doesn't exist yet.
     this.sides.forEach((side) => (sides[side] = (sides[side] || 0) + 1));
     return Object.values(sides).length === 2 ? true : false;
   }
