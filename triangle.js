@@ -14,7 +14,8 @@ export class Triangle {
     let sides = {};
     // For each side, increment its current count or create a new object property if it doesn't exist yet.
     this.sides.forEach((side) => (sides[side] = (sides[side] || 0) + 1));
-    return Object.values(sides).length === 2 ? true : false;
+    return Object.values(sides).length === 2 ? true : false; // Make this an if statement
+    // Do something else if we can't determine whether it's isoceles/equilateral solely by array length.
   }
 
   get isScalene() {
