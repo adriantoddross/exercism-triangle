@@ -14,11 +14,16 @@ export class Triangle {
     let sides = {};
     // For each side, increment its current count or create a new object property if it doesn't exist yet.
     this.sides.forEach((side) => (sides[side] = (sides[side] || 0) + 1));
+
+    /*
+    Before the return, check all sides for triangle inequality.
+    https://byjus.com/maths/triangle-inequality-theorem/
+    */
+
     return (
       Object.values(sides).length === 2 ||
       Object.values(sides).some((side) => side >= 2)
-    ); // Make this an if statement
-    // Do something else if we can't determine whether it's isoceles/equilateral solely by array length.
+    );
   }
 
   get isScalene() {
