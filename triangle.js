@@ -11,14 +11,22 @@ export class Triangle {
   }
 
   get isIsosceles() {
+    /*
+    Check all sides for triangle inequality.
+    https://byjus.com/maths/triangle-inequality-theorem/
+    */
+
+    if (
+      this.sides[0] < (this.sides[1] + this.sides[2]) ||
+      this.sides[1] < (this.sides[0] + this.sides[2]) ||
+      this.sides[2] < (this.sides[0] + this.sides[1])
+    ) {
+      return false;
+    }
+
     let sides = {};
     // For each side, increment its current count or create a new object property if it doesn't exist yet.
     this.sides.forEach((side) => (sides[side] = (sides[side] || 0) + 1));
-
-    /*
-    Before the return, check all sides for triangle inequality.
-    https://byjus.com/maths/triangle-inequality-theorem/
-    */
 
     return (
       Object.values(sides).length === 2 ||
