@@ -17,9 +17,9 @@ export class Triangle {
     */
 
     if (
-      this.sides[0] > (this.sides[1] + this.sides[2]) ||
-      this.sides[1] > (this.sides[0] + this.sides[2]) ||
-      this.sides[2] > (this.sides[0] + this.sides[1])
+      this.sides[0] > this.sides[1] + this.sides[2] ||
+      this.sides[1] > this.sides[0] + this.sides[2] ||
+      this.sides[2] > this.sides[0] + this.sides[1]
     ) {
       return false;
     }
@@ -35,6 +35,17 @@ export class Triangle {
   }
 
   get isScalene() {
-    throw new Error("Remove this statement and implement this function");
+    if (
+      this.sides[0] > this.sides[1] + this.sides[2] ||
+      this.sides[1] > this.sides[0] + this.sides[2] ||
+      this.sides[2] > this.sides[0] + this.sides[1]
+    ) {
+      return false;
+    }
+
+    let sides = {};
+    // For each side, increment its current count or create a new object property if it doesn't exist yet.
+    this.sides.forEach((side) => (sides[side] = (sides[side] || 0) + 1));
+    return Object.values(sides).length === 2;
   }
 }
