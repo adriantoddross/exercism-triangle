@@ -59,17 +59,17 @@ describe("Triangle", () => {
       expect(triangle.isIsosceles).toBe(false);
     });
 
-    xtest("second triangle inequality violation", () => {
+    test("second triangle inequality violation", () => {
       const triangle = new Triangle(1, 3, 1);
       expect(triangle.isIsosceles).toBe(false);
     });
 
-    xtest("third triangle inequality violation", () => {
+    test("third triangle inequality violation", () => {
       const triangle = new Triangle(3, 1, 1);
       expect(triangle.isIsosceles).toBe(false);
     });
 
-    xtest("sides may be floats", () => {
+    test("sides may be floats", () => {
       const triangle = new Triangle(0.5, 0.4, 0.5);
       expect(triangle.isIsosceles).toBe(true);
     });
