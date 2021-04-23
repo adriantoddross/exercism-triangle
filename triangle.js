@@ -3,6 +3,18 @@ export class Triangle {
     this.sides = [...sides];
   }
 
+  triangleInequality() {
+    if (
+      this.sides[0] > this.sides[1] + this.sides[2] ||
+      this.sides[1] > this.sides[0] + this.sides[2] ||
+      this.sides[2] > this.sides[0] + this.sides[1]
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   get isEquilateral() {
     // Return true if all sides are equal
     return this.sides.every(
@@ -16,11 +28,7 @@ export class Triangle {
     https://byjus.com/maths/triangle-inequality-theorem/
     */
 
-    if (
-      this.sides[0] > this.sides[1] + this.sides[2] ||
-      this.sides[1] > this.sides[0] + this.sides[2] ||
-      this.sides[2] > this.sides[0] + this.sides[1]
-    ) {
+    if (this.triangleInequality()) {
       return false;
     }
 
