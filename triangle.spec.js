@@ -81,22 +81,22 @@ describe("Triangle", () => {
       expect(triangle.isScalene).toBe(true);
     });
 
-    xtest("all sides are equal", () => {
+    test("all sides are equal", () => {
       const triangle = new Triangle(4, 4, 4);
       expect(triangle.isScalene).toBe(false);
     });
 
-    xtest("two sides are equal", () => {
+    test("two sides are equal", () => {
       const triangle = new Triangle(4, 4, 3);
       expect(triangle.isScalene).toBe(false);
     });
 
-    xtest("may not violate triangle inequality", () => {
+    test("may not violate triangle inequality", () => {
       const triangle = new Triangle(7, 3, 2);
       expect(triangle.isScalene).toBe(false);
     });
 
-    xtest("sides may be floats", () => {
+    test("sides may be floats", () => {
       const triangle = new Triangle(0.5, 0.4, 0.6);
       expect(triangle.isScalene).toBe(true);
     });
