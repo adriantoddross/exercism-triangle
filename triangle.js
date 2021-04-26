@@ -3,7 +3,19 @@ export class Triangle {
     this.sides = [...sides];
   }
 
+  countSides() {
+    // For each side, increment its current count or create a new object property if it doesn't exist yet.
+    let sides = {};
+    this.sides.forEach((side) => (sides[side] = (sides[side] || 0) + 1));
+    return sides;
+  }
+
   triangleInequality() {
+    /*
+    Check all sides for triangle inequality.
+    https://byjus.com/maths/triangle-inequality-theorem/
+    */
+
     if (
       this.sides[0] > this.sides[1] + this.sides[2] ||
       this.sides[1] > this.sides[0] + this.sides[2] ||
@@ -23,18 +35,11 @@ export class Triangle {
   }
 
   get isIsosceles() {
-    /*
-    Check all sides for triangle inequality.
-    https://byjus.com/maths/triangle-inequality-theorem/
-    */
-
     if (this.triangleInequality()) {
       return false;
     }
 
-    let sides = {};
-    // For each side, increment its current count or create a new object property if it doesn't exist yet.
-    this.sides.forEach((side) => (sides[side] = (sides[side] || 0) + 1));
+    let sides = this.countSides();
 
     return (
       Object.values(sides).length === 2 ||
@@ -47,9 +52,8 @@ export class Triangle {
       return false;
     }
 
-    let sides = {};
-    // For each side, increment its current count or create a new object property if it doesn't exist yet.
-    this.sides.forEach((side) => (sides[side] = (sides[side] || 0) + 1));
+    let sides = this.countSides();
+
     return Object.values(sides).length === 3;
   }
 }
