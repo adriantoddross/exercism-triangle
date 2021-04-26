@@ -5,9 +5,9 @@ export class Triangle {
 
   countSides() {
     // For each side, increment its current count or create a new object property if it doesn't exist yet.
-    let sides = {};
-    this.sides.forEach((side) => (sides[side] = (sides[side] || 0) + 1));
-    return sides;
+    let count = {};
+    this.sides.forEach((side) => (count[side] = (count[side] || 0) + 1));
+    return count;
   }
 
   triangleInequality() {
